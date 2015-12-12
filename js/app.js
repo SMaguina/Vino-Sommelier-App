@@ -1,10 +1,17 @@
 /**
  * Created by Sylvia on 12/7/15.
  */
-var app = angular.module("wineManagerApp", []);
-app.controller("winemanagerCtrl",function($scope, $http){
-
-    function getWines() {
+var app = angular.module("wineApp", []);
+app.controller("wineCtrl",function($scope) {
+    $http.get("http://daretodiscover.herokuapp.com/wines")
+        .success(function(wines) {
+            $scope.wines = wines;
+        })
+        .error(function() {
+            alert("Error getting wine data.");
+        });
+});
+    /*function getWines() {
         $http.get("http://daretodiscover.herokuapp.com/wines")
             .success(function (wines) {
                 //$scope.wines = wines;
@@ -15,4 +22,4 @@ app.controller("winemanagerCtrl",function($scope, $http){
             });
         }
     getWines();
-});
+});*/
