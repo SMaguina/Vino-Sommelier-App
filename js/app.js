@@ -3,7 +3,7 @@
  */
 var app = angular.module("wineApp", []);
 app.controller("wineCtrl",function($scope) {
-    $http.get("http://daretodiscover.herokuapp.com/wines")
+    $http.get("https://resplendent-inferno-6836.firebaseio.com")
         .success(function(wines) {
             $scope.wines = wines;
         })
